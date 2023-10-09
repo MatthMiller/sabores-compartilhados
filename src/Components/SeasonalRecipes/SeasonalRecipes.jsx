@@ -19,7 +19,7 @@ const SeasonalRecipes = () => {
           </div>
         </a>
         <ul>
-          <li></li>
+          <li>oi</li>
         </ul>
       </div>
     </section>

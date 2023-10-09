@@ -23,7 +23,7 @@
 }
 
 .listIcon path {
-    transition: 200ms;
+    transition: 150ms;
 }
 
 @media (pointer: fine) {

@@ -56,6 +56,11 @@
     }
 }
 
+.list {
+    display: flex;
+    gap: 40px;
+}
+
 .category {
     display: flex;
     flex-direction: column;
@@ -103,6 +108,19 @@
 
 .text {
     font-size: .875rem;
-    line-height: 1;
+    line-height: 1.125rem;
     color: #241200;
+    text-align: center;
+    max-width: 75px;
+
+    display: -webkit-box;
+    display: -moz-box;
+    /* display: box; */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 2; /* Define o número máximo de linhas */
+    max-height: calc(2 * 1.125rem); /* linhas * line-height */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
