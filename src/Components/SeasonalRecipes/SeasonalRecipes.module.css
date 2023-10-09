@@ -1,0 +1,39 @@
+.fullTitleContainer {
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    gap: 16px;
+}
+
+.fullTitle {
+    font-size: 1.3125rem;
+    line-height: 1.6875rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #241200;
+}
+
+.listName {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.listIcon {
+    display: flex;
+}
+
+.listIcon path {
+    transition: 200ms;
+}
+
+@media (pointer: fine) {
+    .fullTitleContainer:hover .listIcon path {
+        fill: #FA8566;
+    }
+}
+
+@media (pointer: coarse) {
+    .fullTitleContainer:active .listIcon path {
+        fill: #FA8566;
+    }
+}

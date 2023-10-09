@@ -1,0 +1,108 @@
+.section {
+    background-color: #F9EBDD;
+    padding: 12px 0px;
+    background-repeat: repeat;
+    position: relative;
+    margin-bottom: 56px;
+}
+
+.sectionBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;    
+    background-repeat: repeat;
+    opacity: 50%;
+    z-index: 2;
+}
+
+.geralContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.categoriesButton {
+    background-color: #4F6C4E;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    max-width: 100px;
+    text-align: center;
+    color: #F5FFF4;
+    font-size: .875rem;
+    line-height: 1rem;
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    user-select: none;
+
+    transition: 150ms;
+}
+
+@media (pointer: fine) {
+    .categoriesButton:hover {
+        background-color: #254724;
+    }
+}
+
+@media (pointer: coarse) {
+    .categoriesButton:active {
+        background-color: #254724;
+    }
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    width: max-content;
+    gap: 8px;
+    user-select: none;
+
+    cursor: pointer;
+}
+
+.imageContainer {
+    height: 75px;
+    width: 75px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #EDDDCD;
+    
+    transition: 150ms;
+}
+
+@media (pointer: fine) {
+    .category:hover .image {
+        border-color: #FA8566;
+        box-shadow: 0 0 0 2px #FFD5CA;
+    }
+}
+
+@media (pointer: coarse) {
+    .category:active .image {
+        border-color: #FA8566;
+        box-shadow: 0 0 0 2px #FFD5CA;
+    }
+}
+
+.text {
+    font-size: .875rem;
+    line-height: 1;
+    color: #241200;
+}

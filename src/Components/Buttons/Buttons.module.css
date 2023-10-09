@@ -1,0 +1,26 @@
+.orangeFilled {
+    background-color: #FF724C;
+    padding: 10px 24px;
+    color: #FFF8F6;
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    display: flex;
+    place-items: center;
+    border-radius: 5px;
+    
+    user-select: none;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+@media (pointer: fine) {
+    .orangeFilled:hover {
+        background-color: #DC5834;
+    }
+}
+
+@media (pointer: coarse) {
+    .orangeFilled:active {
+        background-color: #DC5834;
+    }
+}
