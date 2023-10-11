@@ -37,3 +37,70 @@
         fill: #FA8566;
     }
 }
+
+.recipesList {
+    margin-top: 24px;
+    display: flex;
+}
+
+.card {
+    height: 180px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 400px;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.15));
+    border-radius: 5px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.info {
+    background-color: #F9EBDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    padding-right: 14px;
+}
+
+.infoBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.infoItem p {
+    font-size: .875rem;
+    line-height: 1;
+    color: #905E2C;
+    font-weight: 500;
+}
+
+.recipeTitle {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    font-weight: 500;
+    
+    color: #241200;
+    display: -webkit-box;
+    display: -moz-box;
+    /* display: box; */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 2; /* Define o número máximo de linhas */
+    max-height: calc(2 * 1.375rem); /* linhas * line-height */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
