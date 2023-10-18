@@ -58,37 +58,11 @@ const CategoriesHeader = () => {
         (listRef.current.scrollLeft + listRef.current.offsetWidth) <
       1;
 
-    if (isAtMaxScrollRight) {
-      setCanScrollTo((prevState) => {
-        return {
-          ...prevState,
-          right: false,
-        };
-      });
-    } else {
-      setCanScrollTo((prevState) => {
-        return {
-          ...prevState,
-          right: true,
-        };
-      });
-    }
-
-    if (listRef.current.scrollLeft > 0) {
-      setCanScrollTo((prevState) => {
-        return {
-          ...prevState,
-          left: true,
-        };
-      });
-    } else {
-      setCanScrollTo((prevState) => {
-        return {
-          ...prevState,
-          left: false,
-        };
-      });
-    }
+    setCanScrollTo((prevState) => ({
+      ...prevState,
+      right: isAtMaxScrollRight ? false : true,
+      left: listRef.current.scrollLeft > 0 ? true : false,
+    }));
   };
 
   React.useEffect(() => {
