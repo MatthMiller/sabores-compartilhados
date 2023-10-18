@@ -1,14 +1,11 @@
 import React from 'react';
 import style from './SeasonalRecipes.module.css';
 import IconOpenInNew from '../../images/CommonIcons/IconOpenInNew';
-// import tempImage from '../../images/CategoriesHeader/category-image-1.jpg';
 import IconTimer from '../../images/CommonIcons/IconTimer';
 import IconIngredients from '../../images/CommonIcons/IconIngredients';
 import IconCalendar from '../../images/CommonIcons/IconCalendar';
 import axios from 'axios';
 import { API_URL } from '../../config.js';
-
-// https://github.com/MatthMiller/celebrec-next/blob/main/components/Depoimentos/Depoimentos.jsx
 
 const SeasonalRecipes = () => {
   const [seasonalData, setSeasonalData] = React.useState('');
@@ -24,6 +21,12 @@ const SeasonalRecipes = () => {
           setSeasonalData(data);
         }
         setIsDataLoading(false);
+      })
+      .catch(({ response }) => {
+        console.warn(
+          `Status code: ${response.status}\n${response.data.message}`
+        );
+        console.log('response do erro:', response.data.message);
       });
   }, []);
 

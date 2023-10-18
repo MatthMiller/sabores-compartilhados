@@ -4,6 +4,7 @@ import backgroundPattern from '../../images/CategoriesHeader/background-pattern.
 import categoryImageExample from '../../images/CategoriesHeader/category-image-1.jpg';
 import axios from 'axios';
 import { API_URL } from '../../config.js';
+import IconArrowRight from '../../images/CommonIcons/IconArrowRight';
 // import Flickity from 'react-flickity-component';
 
 const CategoriesIcon = () => {
@@ -23,12 +24,14 @@ const CategoriesIcon = () => {
   );
 };
 
-// IMPLEMENTAR FLICKITY na seleção de categorias
-// https://github.com/MatthMiller/celebrec-next/blob/main/components/Depoimentos/Depoimentos.jsx
-
 const CategoriesHeader = () => {
   const [categoriesList, setCategoriesList] = React.useState([]);
   const [categoriesLoading, setCategoriesLoading] = React.useState(false);
+  const [canScrollTo, setCanScrollTo] = React.useState({
+    left: false,
+    right: true,
+  });
+  const listRef = React.useRef(null);
 
   React.useEffect(() => {
     setCategoriesLoading(true);
@@ -41,41 +44,124 @@ const CategoriesHeader = () => {
     });
   }, []);
 
+  const handleNavigateRight = () => {
+    listRef.current.scrollLeft += 120;
+  };
+
+  const handleNavigateLeft = () => {
+    listRef.current.scrollLeft -= 120;
+  };
+
+  const handleScrollWatcher = () => {
+    const isAtMaxScrollRight =
+      listRef.current.scrollWidth -
+        (listRef.current.scrollLeft + listRef.current.offsetWidth) <
+      1;
+
+    if (isAtMaxScrollRight) {
+      setCanScrollTo((prevState) => {
+        return {
+          ...prevState,
+          right: false,
+        };
+      });
+    } else {
+      setCanScrollTo((prevState) => {
+        return {
+          ...prevState,
+          right: true,
+        };
+      });
+    }
+
+    if (listRef.current.scrollLeft > 0) {
+      setCanScrollTo((prevState) => {
+        return {
+          ...prevState,
+          left: true,
+        };
+      });
+    } else {
+      setCanScrollTo((prevState) => {
+        return {
+          ...prevState,
+          left: false,
+        };
+      });
+    }
+  };
+
+  React.useEffect(() => {
+    const listElement = listRef.current;
+    listElement.addEventListener('scroll', handleScrollWatcher);
+
+    return () => {
+      listElement.removeEventListener('scroll', handleScrollWatcher);
+    };
+  }, []);
+
   return (
     <>
       <section className={style.section}>
         <div className='g-wrapper'>
           <div className={`${style.geralContainer} g-container`}>
-            <ul className={style.list}>
-              <li className={style.category}>
-                <div className={style.imageContainer}>
-                  <img
-                    className={style.image}
-                    src={categoryImageExample}
-                    alt='Categoria x'
-                  />
-                </div>
-                <p className={style.text}>Doces</p>
-              </li>
-              {!categoriesList.length && categoriesLoading
-                ? 'Loading... (colocar spinner custom)'
-                : null}
+            <div className={style.listContainer}>
+              <ul ref={listRef} className={style.list}>
+                <li className={style.category}>
+                  <div className={style.imageContainer}>
+                    <img
+                      className={style.image}
+                      src={categoryImageExample}
+                      alt='Categoria x'
+                    />
+                  </div>
+                  <p className={style.text}>Doces</p>
+                </li>
+                {!categoriesList.length && categoriesLoading
+                  ? 'Loading... (colocar spinner custom)'
+                  : null}
 
-              {categoriesList.length
-                ? categoriesList.map((actualCategory) => (
-                    <li className={style.category} key={actualCategory.id}>
-                      <div className={style.imageContainer}>
-                        <img
-                          className={style.image}
-                          src={actualCategory.imageLink}
-                          alt={`Categoria ${actualCategory.title}`}
-                        />
-                      </div>
-                      <p className={style.text}>{actualCategory.title}</p>
-                    </li>
-                  ))
-                : null}
-            </ul>
+                {categoriesList.length
+                  ? categoriesList.map((actualCategory) => (
+                      <li className={style.category} key={actualCategory.id}>
+                        <div className={style.imageContainer}>
+                          <img
+                            className={style.image}
+                            src={actualCategory.imageLink}
+                            alt={`Categoria ${actualCategory.title}`}
+                          />
+                        </div>
+                        <p className={style.text}>{actualCategory.title}</p>
+                      </li>
+                    ))
+                  : null}
+              </ul>
+
+              <div
+                onClick={handleNavigateLeft}
+                className={
+                  canScrollTo.left === true
+                    ? `${style.leftPortal} ${style.canGoToLeft}`
+                    : style.leftPortal
+                }
+              >
+                <div className={style.iconContainer}>
+                  <IconArrowRight />
+                </div>
+              </div>
+              <div
+                onClick={handleNavigateRight}
+                className={
+                  canScrollTo.right === true
+                    ? `${style.rightPortal} ${style.canGoToRight}`
+                    : style.rightPortal
+                }
+              >
+                <div className={style.iconContainer}>
+                  <IconArrowRight />
+                </div>
+              </div>
+            </div>
             <a className={style.categoriesButton} href={'/categorias'}>
               <CategoriesIcon />
               <p>Ver todas as categorias</p>

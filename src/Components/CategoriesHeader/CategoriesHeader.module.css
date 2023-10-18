@@ -56,9 +56,112 @@
     }
 }
 
+.listContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    margin-right: 16px;
+}
+
 .list {
     display: flex;
     gap: 40px;
+    padding-right: 16px;
+
+    overflow-x: auto;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+}
+
+/* Aplicar classe canGoToLeft, quando a distancia
+de scrollLeft for 0, o portalzinho pode aparecer */
+
+.leftPortal,
+.rightPortal {
+    pointer-events: all;
+    top: 0;
+    width: 70px;
+    height: 100%;
+    content: '';
+    position: absolute;
+    transition: 150ms;
+    user-select: none;
+    display: flex;
+    place-content: center;
+
+    background: transparent;
+    z-index: 10;
+    display: none;
+}
+
+.leftPortal {
+    left: 0;
+}
+
+.rightPortal {
+    right: 0;
+}
+
+.iconContainer {
+    /* opacity: 0; */
+    display: flex;
+    height: 100%;
+    place-items: center;
+}
+
+.leftPortal .iconContainer svg {
+    transform: rotate(-180deg);
+}
+
+.iconContainer svg {
+    opacity: 0;
+    background-color: #F9EBDD;
+    box-shadow: 0 0 0 2px #FFD5CA;
+    border-radius: 50%;
+    height: 32px;
+    transition: 150ms;
+    width: 32px;
+}
+
+.iconContainer svg path {
+    display: flex;
+    place-content: center;
+    opacity: 0;
+    transition: 150ms;
+    fill: #FFD5CA;
+}
+
+@media (pointer: fine) {
+    .canGoToLeft.leftPortal {
+        cursor: pointer;
+        background: linear-gradient(to left, transparent, #F9EBDD);
+        display: flex;   
+    }
+
+    .canGoToRight.rightPortal {
+        display: flex;
+        cursor: pointer;
+        background: linear-gradient(to right, transparent, #F9EBDD);
+    }
+    
+    .listContainer:hover .canGoToLeft:hover .iconContainer svg,
+    .listContainer:hover .canGoToRight:hover .iconContainer svg,
+    .listContainer:hover .canGoToLeft:hover .iconContainer svg path,
+    .listContainer:hover .canGoToRight:hover .iconContainer svg path {
+        opacity: 1;
+    }
+    
+    .leftPortal:hover svg,
+    .rightPortal:hover svg {
+        box-shadow: 0 0 0 2px #FA8566;
+    }
+
+    .leftPortal:hover svg path,
+    .rightPortal:hover svg path {
+        fill: #FA8566;
+    }
 }
 
 .category {
