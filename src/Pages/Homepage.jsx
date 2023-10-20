@@ -1,13 +1,13 @@
 import React from 'react';
-import InstitutionalNavLayout from '../Layouts/InstitutionalNavLayout.jsx';
+import InstitutionalCategoriesLayout from '../Layouts/InstitutionalCategoriesLayout.jsx';
 import SeasonalRecipes from '../Components/SeasonalRecipes/SeasonalRecipes.jsx';
 
 const Homepage = () => {
   return (
     <>
-      <InstitutionalNavLayout>
+      <InstitutionalCategoriesLayout>
         <SeasonalRecipes />
-      </InstitutionalNavLayout>
+      </InstitutionalCategoriesLayout>
     </>
   );
 };

@@ -191,7 +191,7 @@ de scrollLeft for 0, o portalzinho pode aparecer */
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    border: 1px solid #EDDDCD;
+    border: 1px solid transparent;
     
     transition: 150ms;
 }
@@ -199,14 +199,14 @@ de scrollLeft for 0, o portalzinho pode aparecer */
 @media (pointer: fine) {
     .category:hover .image {
         border-color: #FA8566;
-        box-shadow: 0 0 0 2px #FFD5CA;
+        box-shadow: 0 0 0 2px rgba(255, 213, 202, 0.40);
     }
 }
 
 @media (pointer: coarse) {
     .category:active .image {
         border-color: #FA8566;
-        box-shadow: 0 0 0 2px #FFD5CA;
+        box-shadow: 0 0 0 2px rgba(255, 213, 202, 0.40);
     }
 }
 

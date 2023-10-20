@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Components/Header/Header';
 import CategoriesHeader from '../Components/CategoriesHeader/CategoriesHeader';
 
-const InstitutionalNavLayout = ({ children }) => {
+const InstitutionalCategoriesLayout = ({ children }) => {
   return (
     <>
       <Header />
@@ -12,4 +12,4 @@ const InstitutionalNavLayout = ({ children }) => {
   );
 };
 
-export default InstitutionalNavLayout;
+export default InstitutionalCategoriesLayout;

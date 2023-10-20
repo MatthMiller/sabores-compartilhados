@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './CategoriesHeader.module.css';
 import backgroundPattern from '../../images/CategoriesHeader/background-pattern.svg';
-import categoryImageExample from '../../images/CategoriesHeader/category-image-1.jpg';
+// import categoryImageExample from '../../images/CategoriesHeader/category-image-1.jpg';
 import axios from 'axios';
 import { API_URL } from '../../config.js';
 import IconArrowRight from '../../images/CommonIcons/IconArrowRight';
+import { Link } from 'react-router-dom';
 // import Flickity from 'react-flickity-component';
 
 const CategoriesIcon = () => {
@@ -49,6 +50,9 @@ const CategoriesHeader = () => {
   };
 
   const handleNavigateLeft = () => {
+    if (listRef.current.scrollLeft < 200) {
+      listRef.current.scrollLeft -= 200;
+    }
     listRef.current.scrollLeft -= 120;
   };
 
@@ -81,7 +85,7 @@ const CategoriesHeader = () => {
           <div className={`${style.geralContainer} g-container`}>
             <div className={style.listContainer}>
               <ul ref={listRef} className={style.list}>
-                <li className={style.category}>
+                {/* <li className={style.category}>
                   <div className={style.imageContainer}>
                     <img
                       className={style.image}
@@ -90,24 +94,30 @@ const CategoriesHeader = () => {
                     />
                   </div>
                   <p className={style.text}>Doces</p>
-                </li>
+                </li> */}
                 {!categoriesList.length && categoriesLoading
                   ? 'Loading... (colocar spinner custom)'
                   : null}
 
                 {categoriesList.length
-                  ? categoriesList.map((actualCategory) => (
-                      <li className={style.category} key={actualCategory.id}>
-                        <div className={style.imageContainer}>
-                          <img
-                            className={style.image}
-                            src={actualCategory.imageLink}
-                            alt={`Categoria ${actualCategory.title}`}
-                          />
-                        </div>
-                        <p className={style.text}>{actualCategory.title}</p>
-                      </li>
-                    ))
+                  ? categoriesList.map((actualCategory, index) => {
+                      if (index >= 14) {
+                        return null;
+                      }
+
+                      return (
+                        <li className={style.category} key={actualCategory.id}>
+                          <div className={style.imageContainer}>
+                            <img
+                              className={style.image}
+                              src={actualCategory.imageLink}
+                              alt={`Categoria ${actualCategory.title}`}
+                            />
+                          </div>
+                          <p className={style.text}>{actualCategory.title}</p>
+                        </li>
+                      );
+                    })
                   : null}
               </ul>
 
@@ -136,10 +146,10 @@ const CategoriesHeader = () => {
                 </div>
               </div>
             </div>
-            <a className={style.categoriesButton} href={'/categorias'}>
+            <Link to={'/categorias'} className={style.categoriesButton}>
               <CategoriesIcon />
               <p>Ver todas as categorias</p>
-            </a>
+            </Link>
           </div>
         </div>
         <div
