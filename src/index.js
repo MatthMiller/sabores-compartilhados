@@ -12,7 +12,7 @@ root.render(
     <GlobalDataContext>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Homepage />} />
+          <Route exact path='/' element={<Homepage />} />
           <Route path='/categorias' element={<Categories />} />
         </Routes>
       </BrowserRouter>

@@ -87,14 +87,20 @@
 }
 
 @media (max-width: 680px) {
-    .category {
-        height: 100px;
+    .list {
+        gap: 8px;
     }
 
+    .category {
+        height: 75px;
+    }
+
+    
     .text {
+        padding: 8px 12px;
         font-size: 1.125rem;
         line-height: 1.375rem;
-        height: calc(1.375rem + 12px);
+        height: calc(1.375rem + 8px);
         overflow: hidden;
         text-overflow: ellipsis; 
     }
