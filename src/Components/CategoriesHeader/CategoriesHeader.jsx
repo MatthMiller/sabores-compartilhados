@@ -6,7 +6,6 @@ import axios from 'axios';
 import { API_URL } from '../../config.js';
 import IconArrowRight from '../../images/CommonIcons/IconArrowRight';
 import { Link } from 'react-router-dom';
-// import Flickity from 'react-flickity-component';
 
 const CategoriesIcon = () => {
   return (
@@ -46,14 +45,15 @@ const CategoriesHeader = () => {
   }, []);
 
   const handleNavigateRight = () => {
-    listRef.current.scrollLeft += 120;
+    listRef.current.scrollLeft += 250;
   };
 
   const handleNavigateLeft = () => {
-    if (listRef.current.scrollLeft < 200) {
-      listRef.current.scrollLeft -= 200;
-    }
-    listRef.current.scrollLeft -= 120;
+    // if (listRef.current.scrollLeft < 250) {
+    //   listRef.current.scrollLeft -= 250;
+    // } else {
+    listRef.current.scrollLeft -= 250;
+    // }
   };
 
   const handleScrollWatcher = () => {

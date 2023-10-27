@@ -1,0 +1,62 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 1px solid #D6C7B3;
+    border-radius: 4px;
+    background-color: #FFFBF6;
+    color: #241200;
+    transition: 150ms;
+
+    font-size: 1rem;
+    line-height: 1;
+    padding: 9px;
+    font-family: 'Ubuntu';
+}
+
+.input::placeholder {
+    color: #AE9F88;
+}
+
+.input:focus {
+    border-color: #FA8566;
+    box-shadow: 0 0 0 2px #FFD5CA;
+}
+
+.label {
+    color: #241200;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.filledButton {
+    background-color: #FF724C;
+    padding: 14px 12px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #FFF8F6;
+    cursor: pointer;
+}
+
+.ghostButton {
+    background-color: transparent;
+    border: 2px solid #FF724C;
+    color: #241200;
+    padding: 12px 12px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}

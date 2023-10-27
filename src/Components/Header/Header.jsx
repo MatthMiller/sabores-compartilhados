@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Header.module.css';
 import buttonStyle from '../Buttons/Buttons.module.css';
+import IconOrange from '../../images/CommonIcons/IconOrange';
 
 const SearchIcon = () => {
   return (
@@ -28,7 +29,8 @@ const Header = () => {
       <div className='g-wrapper'>
         <div className={style.headerContainer + ' g-container'}>
           <div className={style.left}>
-            <a href='/'>
+            <a className={style.logoContainer} href='/'>
+              <IconOrange />
               <h1 className={style.logo}>sabores</h1>
             </a>
           </div>

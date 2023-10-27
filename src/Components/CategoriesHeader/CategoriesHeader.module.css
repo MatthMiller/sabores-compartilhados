@@ -164,6 +164,12 @@ de scrollLeft for 0, o portalzinho pode aparecer */
     }
 }
 
+@media (pointer: coarse) {
+    .list {
+        overflow-x: auto;
+    }
+}
+
 .category {
     display: flex;
     flex-direction: column;

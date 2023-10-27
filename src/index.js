@@ -5,6 +5,8 @@ import Homepage from './Pages/Homepage';
 import GlobalDataContext from './Contexts/GlobalDataContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Categories from './Pages/Categories';
+import CategoryCreate from './Pages/admin/CategoryCreate';
+import LoginPage from './Pages/LoginPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +16,9 @@ root.render(
         <Routes>
           <Route exact path='/' element={<Homepage />} />
           <Route path='/categorias' element={<Categories />} />
+          <Route path='/login' element={<LoginPage />} />
+
+          <Route path='/admin/categorias' element={<CategoryCreate />} />
         </Routes>
       </BrowserRouter>
     </GlobalDataContext>
