@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Sabores Compartilhados - Front-End
+## Versão: 2.0
+## Status do Projeto: ⚠️ Espera 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tópicos
+[🔹 Descrição do projeto](#descricao)
 
-## Available Scripts
+[🔹 Funcionalidades](#funcionalidades)
 
-In the project directory, you can run:
+[🔹 Novos Recursos](#novosRecursos)
 
-### `npm start`
+[🔹 Resolvendo problemas](#problemas)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[🔹 Distribuição](#distribuicao)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[🔹 Pré-requisitos](#preRequisitos)
 
-### `npm test`
+[🔹 Como rodar a aplicação](#comoRodar)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[🔹 Testes realizados](#testes)
 
-### `npm run build`
+[🔹 Banco de Dados](#bancoDados)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[🔹 Linguagens, dependências e libs utilizadas](#linguagens)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[🔹 Desenvolvedores/Contribuintes](#devs)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[🔹 Informações Extras](#extra)
 
-### `npm run eject`
+## <a name="descricao"></a> Descrição do projeto
+Este repositório contém o Front-End do Projeto "Sabores Copartilhados". O projeto é uma iniciativa para estabelecer uma plataforma online dedicada à culinária. Através desta plataforma os usuários terão a oportunidade de explorar o mundo da gastronomia de forma interativa e poderão compartilhar suas receitas exclusivas, além de conseguirem salvar, curtir, criar listas de receitas, descobrir novos pratos inspiradores e se conectar com outros entusiastas da culinária. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## <a name="funcionalidades"></a> Funcionalidades ⚙️
+✔️ Tela de Login
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✔️ Tela Inicial
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✔️ Tela de Categorias
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## <a name="problemas"></a> Resolvendo Problemas
+⚠️ Tela de Cadastro
 
-## Learn More
+⚠️ Tela de 'meu Perfil'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+⚠️ Tela de 'Perfil de Terceiro'
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚠️ Tela de Lista de Receitas
 
-### Code Splitting
+⚠️ Tela de Criação de Lista de Receitas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚠️ Tela de seguindo 
 
-### Analyzing the Bundle Size
+⚠️ Tela de seguidores
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## <a name="novosRecursos"></a> Novos Recursos 
+✔️ Tela de Login
 
-### Making a Progressive Web App
+✔️ Tela de Criação de Receita
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## <a name="distribuicao"></a> Distribuição
+[API Sabores Compartilhados](https://github.com/MatthMiller/sabores-api)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[Front-End WEB Sabores Compartilhados](https://github.com/MatthMiller/sabores-compartilhados)
 
-### Deployment
+## <a name="preRequisitos"></a> Pré-requisitos ⚠️
+Navegador WEB    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## <a name="comoRodar"></a> Como rodar a aplicação 
+Para visualizar o Front-End basta abrir o projeto em seu nnavegador.
 
-### `npm run build` fails to minify
+## <a name="testes"></a> Testes realizados
+Os testes podem ser acompanhados na tabela de [Plano de Testes](https://docs.google.com/spreadsheets/d/1fNHr9dIjl4Fs1ZOBHw_4JWKReBojYbb1/edit?usp=sharing&ouid=111839950635937215202&rtpof=true&sd=true)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## <a name="bancoDados"></a> Banco de Dados 🗂️
+O projeto utiliza banco de dados MYSQL, que é administrado por meio do Sequelize.
+Caso tenha acesso a uma base de dados, deixe a descrição do arquivo (json, csv, xml e etc). ?
+
+## <a name="linguagens"></a>Linguagens, dependencias e libs utilizadas 📚
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+## <a name="devs"></a> Desenvolvedores/Contribuintes:
+Ícaro Fontavine Boaroto
+
+João Victor Silva Ferreira
+
+Matheus Monteiro Bueno
+
+Nicolas Navas Segato
+
+Wilson Cassillo Neto
+
+## <a name="extra"></a> Informações Extra:
+A documentação da etapa 5, se encontra na API, não neste repositório do front-end.
+[API](https://github.com/MatthMiller/sabores-api)
+
+## Licença
+The MIT License (MIT)
+
+## Copyright ©️ 2023 - Sabores Compartilhados
