@@ -17,7 +17,7 @@
 
     font-size: 1rem;
     line-height: 1;
-    padding: 9px;
+    padding: 12px 12px;
     font-family: 'Ubuntu';
 }
 
@@ -36,16 +36,22 @@
     line-height: 1;
 }
 
-.filledButton {
-    background-color: #FF724C;
-    padding: 14px 12px;
+.filledButton,
+.ghostButton {
+    user-select: none;
+    transition: 150ms;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 5px;
     width: 100%;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
-    border-radius: 5px;
-    font-weight: 500;
+}
+
+.filledButton {
+    background-color: #FF724C;
+    padding: 14px 12px;
     color: #FFF8F6;
-    cursor: pointer;
 }
 
 .ghostButton {
@@ -53,10 +59,54 @@
     border: 2px solid #FF724C;
     color: #241200;
     padding: 12px 12px;
-    width: 100%;
-    text-align: center;
+}
+
+.backToHome {
+    margin-bottom: 16px;
+}
+
+.backToHome a {
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: underline;
+    color: #FF724C;
+    transition: 150ms;
     font-family: 'Ubuntu', sans-serif;
-    border-radius: 5px;
-    font-weight: 500;
-    cursor: pointer;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 1rem;    
+}
+
+@media (pointer: fine) {
+    .filledButton:hover {
+        background-color: #DC5834;
+    }
+
+    .ghostButton:hover {
+        background-color: #DC5834;
+        border-color: #DC5834;
+        color: #FFF8F6;
+    }
+
+    .backToHome a:hover {
+        color: #DC5834;
+    }
+}
+
+@media (pointer: coarse) {
+    .filledButton:active {
+        background-color: #DC5834;
+    }
+
+    .ghostButton:active {
+        background-color: #DC5834;
+        border-color: #DC5834;
+        color: #FFF8F6;
+    }
+
+    .backToHome a:hover {
+        color: #DC5834;
+    }
 }

@@ -1,0 +1,136 @@
+.section {
+    margin-bottom: 64px;
+}
+
+.sectionTitle {
+    font-size: 1.3125rem;
+    line-height: 1.6875rem;
+
+    /* font-size: 18px; */
+    font-weight: 500;
+    color: #241200;
+    margin-bottom: 24px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.item {
+    position: relative;
+    max-height: 220px;
+}
+
+.imageContainer {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.image {
+    border-radius: 5px;
+    width: 100%;
+    /* height: 100%; */
+    height: 220px;
+
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+
+    transition: 200ms;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.15));
+}
+
+.shadow {
+    position: absolute;
+    width: 100%;
+    padding: 7px 8px 10px 8px;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 0px 0px 5px 5px;
+}
+
+.recipeTitle {
+    font-size: 1.125rem;
+    font-weight: 1.375rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    transition: 150ms;
+    cursor: pointer;
+    color: #F5FFF4;
+    height: calc(2 * 1.475rem);
+    
+
+    display: -webkit-box;
+    display: -moz-box;
+    /* display: box; */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 2; /* Define o número máximo de linhas */
+    max-height: calc(2 * 1.475rem); /* linhas * line-height */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.author {
+    font-style: italic;
+    font-size: .875rem;
+    color: #DDFFDA;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+@media (pointer: fine) {
+    .recipeTitle:hover {
+        color: #FA8566;
+    }
+
+    .author:hover {
+        color: #6AFF5B;
+    }
+
+    .item:hover .image {
+        transform: scale(1.1);
+    }
+}
+
+@media (pointer: coarse) {
+    .recipeTitle:active {
+        color: #FA8566;
+    }
+
+    .author:active {
+        color: #6AFF5B;
+    }
+
+    .item:active .image {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 1250px) {
+    .list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1060px) {
+    .list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 782px) {
+    .list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .list {
+        grid-template-columns: 1fr;
+    }
+}

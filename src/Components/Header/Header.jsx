@@ -2,6 +2,11 @@ import React from 'react';
 import style from './Header.module.css';
 import buttonStyle from '../Buttons/Buttons.module.css';
 import IconOrange from '../../images/CommonIcons/IconOrange';
+import { GlobalContext } from '../../Contexts/GlobalDataContext';
+import IconProfile from '../../images/CommonIcons/IconProfile';
+import IconMenuMobile from '../../images/CommonIcons/IconMenuMobile';
+import formStyle from '../Form/Form.module.css';
+import { Link } from 'react-router-dom';
 
 const SearchIcon = () => {
   return (
@@ -23,10 +28,22 @@ const SearchIcon = () => {
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
+  const [isLogged, setIsLogged] = React.useState(false);
+  const [isMenuActive, setIsMenuActive] = React.useState(false);
+  const context = React.useContext(GlobalContext);
+  console.log(context);
+
+  React.useEffect(() => {
+    console.log(context.loginGlobalData.isLogged);
+    if (context.loginGlobalData.isLogged) {
+      setIsLogged(true);
+    }
+  }, [context]);
 
   return (
     <header className={style.header}>
       <div className='g-wrapper'>
+        {/* {isLogged ? <p>Está logado!</p> : <p>Não está logado!</p>} */}
         <div className={style.headerContainer + ' g-container'}>
           <div className={style.left}>
             <a className={style.logoContainer} href='/'>
@@ -41,13 +58,64 @@ const Header = () => {
               <SearchIcon />
             </div>
 
-            <a href='/' className={buttonStyle.orangeFilled}>
-              Compartilhar receita
-            </a>
+            <div
+              onClick={() => {
+                setIsMenuActive(!isMenuActive);
+              }}
+              className={`${buttonStyle.orangeFilled} ${style.orangeButton} ${
+                style.menuMobile
+              } ${isMenuActive ? style.active : ''}`}
+            >
+              <IconMenuMobile />
+              <p className={style.menuText}>Menu</p>
+            </div>
+
+            {isLogged ? (
+              <Link
+                className={`${formStyle.filledButton} ${style.orangeButton} ${style.loginButton}`}
+                to={'/publicar-receita'}
+              >
+                <p>Compartilhar receita</p>
+              </Link>
+            ) : (
+              <Link
+                className={`${formStyle.filledButton} ${style.orangeButton} ${style.loginButton}`}
+                to={'login'}
+              >
+                <IconProfile />
+                <p>Fazer login</p>
+              </Link>
+            )}
 
             <div className={style.profileDropdownContainer}></div>
           </div>
         </div>
+
+        {isMenuActive ? (
+          <div className={style.headerContainer + ' g-container ' + style.menu}>
+            <div className={`${style.searchContainer} ${style.isMobileButton}`}>
+              <input className={style.input} placeholder='Pesquisar...' />
+              <SearchIcon />
+            </div>
+
+            {isLogged ? (
+              <Link
+                className={`${formStyle.filledButton} ${style.orangeButton} ${style.loginButton} ${style.isMobileButton} ${style.shareButton}`}
+                to={'/publicar-receita'}
+              >
+                <p>Compartilhar receita</p>
+              </Link>
+            ) : (
+              <Link
+                className={`${formStyle.filledButton} ${style.orangeButton} ${style.loginButton} ${style.isMobileButton}`}
+                to={'login'}
+              >
+                <IconProfile />
+                <p>Fazer login</p>
+              </Link>
+            )}
+          </div>
+        ) : null}
       </div>
     </header>
   );

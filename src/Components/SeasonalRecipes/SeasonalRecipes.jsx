@@ -3,9 +3,12 @@ import style from './SeasonalRecipes.module.css';
 import IconOpenInNew from '../../images/CommonIcons/IconOpenInNew';
 import IconTimer from '../../images/CommonIcons/IconTimer';
 import IconIngredients from '../../images/CommonIcons/IconIngredients';
-import IconCalendar from '../../images/CommonIcons/IconCalendar';
+// import IconCalendar from '../../images/CommonIcons/IconCalendar';
 import axios from 'axios';
 import { API_URL } from '../../config.js';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { Link } from 'react-router-dom';
+import Flickity from 'react-flickity-component';
 
 const SeasonalRecipes = () => {
   const [seasonalData, setSeasonalData] = React.useState('');
@@ -16,33 +19,32 @@ const SeasonalRecipes = () => {
     axios
       .get(`${API_URL}/recipes-list/getSeasonalList`)
       .then(({ data, status }) => {
-        console.log(data, status);
+        // console.log(data, status);
         if (data) {
           setSeasonalData(data);
         }
         setIsDataLoading(false);
       })
       .catch(({ response }) => {
-        console.warn(
-          `Status code: ${response.status}\n${response.data.message}`
-        );
-        console.log('response do erro:', response.data.message);
+        if (response) {
+          console.log(response.data);
+        }
       });
   }, []);
 
+  console.log(seasonalData);
+
   return (
     <>
-      {!seasonalData.length && isDataLoading
-        ? 'Loading... (colocar spinner custom)'
-        : null}
+      {!seasonalData.length && isDataLoading ? <LoadingSpinner /> : null}
 
       {seasonalData && seasonalData.recipes.length ? (
         <section
           key={seasonalData.createdAt + seasonalData.title}
-          className='g-wrapper'
+          className={style.section + ' g-wrapper'}
         >
           <div className='g-container'>
-            <a href='/' className={style.fullTitleContainer}>
+            <Link to='/' className={style.fullTitleContainer}>
               <h2 className={style.fullTitle}>
                 Lista recomendada –{' '}
                 <span className={style.listName}>{seasonalData.title}</span>
@@ -51,14 +53,14 @@ const SeasonalRecipes = () => {
               <div className={style.listIcon}>
                 <IconOpenInNew />
               </div>
-            </a>
+            </Link>
             <ul className={style.recipesList}>
               {seasonalData.recipes.length
                 ? seasonalData.recipes.map((actualRecipe) => {
-                    const dateObject = new Date(actualRecipe.createdAt);
-                    const actualDate = `${dateObject.getDate()}/${
-                      dateObject.getMonth() + 1
-                    }/${dateObject.getFullYear()}`;
+                    // const dateObject = new Date(actualRecipe.createdAt);
+                    // const actualDate = `${dateObject.getDate()}/${
+                    //   dateObject.getMonth() + 1
+                    // }/${dateObject.getFullYear()}`;
                     const hours = actualRecipe.estimatedTimeMinutes / 60;
                     const minutes = actualRecipe.estimatedTimeMinutes % 60;
 
@@ -72,14 +74,22 @@ const SeasonalRecipes = () => {
                           />
                         </a>
                         <div className={style.info}>
-                          <a href='/' className={style.infoTop}>
-                            <h2
-                              title={actualRecipe.title}
-                              className={style.recipeTitle}
+                          <div className={style.infoTop}>
+                            <Link
+                              to={`receita/${actualRecipe.id}`}
+                              className={style.infoTop}
                             >
-                              {actualRecipe.title}
-                            </h2>
-                          </a>
+                              <h2
+                                title={actualRecipe.title}
+                                className={style.recipeTitle}
+                              >
+                                {actualRecipe.title}
+                              </h2>
+                            </Link>
+                            <Link to={`user/`}>
+                              <p className={style.author}>Matheus Monteiro</p>
+                            </Link>
+                          </div>
                           <ul className={style.infoBottom}>
                             <li className={style.infoItem}>
                               <div className={style.iconContainer}>
@@ -98,12 +108,12 @@ const SeasonalRecipes = () => {
                               </div>
                               <p>{actualRecipe.ingredients} ingredientes</p>
                             </li>
-                            <li className={style.infoItem}>
+                            {/* <li className={style.infoItem}>
                               <div className={style.iconContainer}>
                                 <IconCalendar />
                               </div>
                               <p>{actualDate}</p>
-                            </li>
+                            </li> */}
                           </ul>
                         </div>
                       </li>

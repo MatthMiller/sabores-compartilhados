@@ -55,6 +55,8 @@ ele ja vai caber na tela e oq vai afastar das bordas
 @media (max-width: 700px) {
     .login {
         width: 100%;
+        margin-top: 16px;
+        margin-bottom: 16px;
     }
 
     .bg {
@@ -98,3 +100,4 @@ ele ja vai caber na tela e oq vai afastar das bordas
 .divisorR {
     background-color: #FF724C;
 }
+

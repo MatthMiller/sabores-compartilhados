@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: 200ms;
 }
 
 .logoContainer {
@@ -73,6 +74,7 @@
 .searchIcon path {
     transition: 300ms;
 }
+
 .searchContainer:has(.input:focus) .searchIcon path {
     fill: #FA8566;
 }
@@ -88,4 +90,109 @@
 
 .shareButton {
     background-color: #FF724C;
+}
+
+.orangeButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: max-content;
+}
+
+.rightButtons {
+    display: flex;
+    gap: 16px;
+}
+
+@media (max-width: 950px) {
+    .searchContainer:has(.input:focus) .input {
+        width: 260px;
+    }
+
+    .searchContainer {
+        margin-right: 16px;
+    }
+}
+
+.header .menuMobile {
+    display: none;
+}
+
+.header .menuMobile.active {
+    background-color: #DC5834;
+}
+
+.menu {
+    margin-top: 16px;
+    transition: 200ms;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.searchContainer.isMobileButton {
+    display: flex;
+    width: 100%;
+    margin-right: 0px;
+}
+
+.searchContainer.isMobileButton .input {
+    width: 100%;
+    display: flex;
+}
+
+.loginButton.isMobileButton {
+    min-width: 100%;
+    justify-content: center;
+    display: flex;
+    padding: 10px 6px !important;
+}
+
+.loginButton.shareButton.isMobileButton {
+    padding: 13px 6px !important;
+}
+
+.loginButton, .shareButton {
+    padding: 14px 16px !important;
+}
+
+@media (max-width: 750px) {
+    .searchContainer:has(.input:focus) .input {
+        width: 100%;
+    }
+
+    .header .menuMobile {
+        display: flex;
+    }
+
+    .loginButton:not(.isMobileButton) {
+        display: none;
+    }
+
+    .searchContainer {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .logoContainer {
+        gap: 6px;
+    }
+
+    .logo {
+        font-size: 1.875rem;
+    }
+
+    .logoContainer svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .menuText {
+        display: none;
+    }
+
+    .menuMobile {
+        padding: 10px !important;
+    }
 }

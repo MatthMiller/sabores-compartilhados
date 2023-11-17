@@ -44,6 +44,10 @@
     transition: 150ms;
 }
 
+.categoriesButton p {
+    user-select: none;
+}
+
 @media (pointer: fine) {
     .categoriesButton:hover {
         background-color: #254724;
@@ -233,4 +237,35 @@ de scrollLeft for 0, o portalzinho pode aparecer */
     max-height: calc(2 * 1.125rem); /* linhas * line-height */
     overflow: hidden; 
     text-overflow: ellipsis; 
+}
+
+@media (max-width: 750px) {
+    .section {
+        margin-bottom: 32px;
+    }
+
+    .geralContainer {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .categoriesButton {
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 10px 6px;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .categoriesButton svg {
+        height: 24px;
+        width: 24px;
+    }
+
+    .list {
+        gap: 24px;
+    }
 }

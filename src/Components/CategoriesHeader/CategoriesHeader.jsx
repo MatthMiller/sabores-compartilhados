@@ -6,6 +6,7 @@ import axios from 'axios';
 import { API_URL } from '../../config.js';
 import IconArrowRight from '../../images/CommonIcons/IconArrowRight';
 import { Link } from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const CategoriesIcon = () => {
   return (
@@ -36,7 +37,7 @@ const CategoriesHeader = () => {
   React.useEffect(() => {
     setCategoriesLoading(true);
     axios.get(`${API_URL}/categories/all`).then(({ data, status }) => {
-      console.log(data, status);
+      // console.log(data, status);
       if (data.length) {
         setCategoriesList(data);
       }
@@ -84,21 +85,10 @@ const CategoriesHeader = () => {
         <div className='g-wrapper'>
           <div className={`${style.geralContainer} g-container`}>
             <div className={style.listContainer}>
+              {!categoriesList.length && categoriesLoading ? (
+                <LoadingSpinner />
+              ) : null}
               <ul ref={listRef} className={style.list}>
-                {/* <li className={style.category}>
-                  <div className={style.imageContainer}>
-                    <img
-                      className={style.image}
-                      src={categoryImageExample}
-                      alt='Categoria x'
-                    />
-                  </div>
-                  <p className={style.text}>Doces</p>
-                </li> */}
-                {!categoriesList.length && categoriesLoading
-                  ? 'Loading... (colocar spinner custom)'
-                  : null}
-
                 {categoriesList.length
                   ? categoriesList.map((actualCategory, index) => {
                       if (index >= 14) {

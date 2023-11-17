@@ -1,13 +1,13 @@
 import React from 'react';
-import InstitutionalCategoriesLayout from '../Layouts/InstitutionalCategoriesLayout';
 import AllCategories from '../Components/AllCategories/AllCategories';
+import InstitutionalInternalPageLayout from '../Layouts/InstitutionalInternalPageLayout';
 
 const Categories = () => {
   return (
     <>
-      <InstitutionalCategoriesLayout>
+      <InstitutionalInternalPageLayout title='Categorias'>
         <AllCategories />
-      </InstitutionalCategoriesLayout>
+      </InstitutionalInternalPageLayout>
     </>
   );
 };
